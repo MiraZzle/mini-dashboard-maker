@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "7ca6chESi4ZBgvFNBlX0Yfv9EX0iY3j21GM8iCK4N2bxayZOxFAtNCVTVHwgV7CXgyPRxcl5C5Xd0w0r4pUqcw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\matfo\\Desktop\\MFF\\mini-dashboard-maker\\source\\source.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\matfo\\.nuget\\packages\\csvhelper\\33.0.1\\csvhelper.33.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

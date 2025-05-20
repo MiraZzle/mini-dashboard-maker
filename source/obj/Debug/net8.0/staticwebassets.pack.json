@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\matfo\\Desktop\\MFF\\mini-dashboard-maker\\source\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\source.bundle.scp.css",
+      "PackagePath": "staticwebassets\\source.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\matfo\\Desktop\\MFF\\mini-dashboard-maker\\source\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\matfo\\Desktop\\MFF\\mini-dashboard-maker\\source\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\matfo\\Desktop\\MFF\\mini-dashboard-maker\\source\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\matfo\\Desktop\\MFF\\mini-dashboard-maker\\source\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.source.props",
+      "PackagePath": "build\\source.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.source.props",
+      "PackagePath": "buildMultiTargeting\\source.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.source.props",
+      "PackagePath": "buildTransitive\\source.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.source.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
