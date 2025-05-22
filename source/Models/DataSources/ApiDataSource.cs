@@ -2,10 +2,9 @@
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
-using MiniDashboardMaker.Models.DataSources;
 using Models.DataSources;
 
-namespace MiniDashboardMaker.Models.DataSources;
+namespace Models.DataSources;
 
 public class ApiDataSource : IDataSource
 {
