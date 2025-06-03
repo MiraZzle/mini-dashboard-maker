@@ -1,0 +1,108 @@
+﻿/* ===== Base styles ===== */
+html, body {
+    font-family: 'Segoe UI', 'Roboto Mono', 'Fira Code', 'Consolas', monospace;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ===== Links & Buttons ===== */
+a, .btn-link {
+    color: #66d9ef;
+    text-decoration: none;
+}
+
+    a:hover, .btn-link:hover {
+        color: #a6e3e9;
+    }
+
+.btn-primary {
+    color: #fff;
+    background-color: #007acc;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+    .btn-primary:hover {
+        background-color: #005fa3;
+    }
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(102, 217, 239, 0.5);
+}
+
+/* ===== Content & Layout ===== */
+.content {
+    padding: 1.5rem;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+    h1:focus {
+        outline: none;
+    }
+
+/* ===== Validation ===== */
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #32cd32;
+}
+
+.invalid {
+    outline: 1px solid #ff5f56;
+}
+
+.validation-message {
+    color: #ff5f56;
+}
+
+/* ===== Error Boundary ===== */
+.blazor-error-boundary {
+    background-color: #7c1c1c;
+    color: #fff;
+    padding: 1rem 1rem 1rem 2rem;
+    border-left: 6px solid #ff5f56;
+    position: relative;
+}
+
+    .blazor-error-boundary::before {
+        content: "⚠️";
+        position: absolute;
+        left: 0.75rem;
+        top: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .blazor-error-boundary::after {
+        content: "An error has occurred.";
+    }
+
+/* ===== Forms ===== */
+.form-control {
+    background-color: #2e2e2e;
+    border: 1px solid #444;
+    color: #e0e0e0;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+}
+
+    .form-control:focus {
+        border-color: #66d9ef;
+        background-color: #252526;
+    }
+
+.form-check-input {
+    background-color: #2e2e2e;
+    border-color: #5a5a5a;
+}
+
+.darker-border-checkbox.form-check-input {
+    border-color: #999;
+}

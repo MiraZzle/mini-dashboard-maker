@@ -6,11 +6,14 @@ C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\bin\Debug\net8.0\source.d
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\bin\Debug\net8.0\source.runtimeconfig.json
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\bin\Debug\net8.0\source.dll
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\bin\Debug\net8.0\source.pdb
+C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\bin\Debug\net8.0\CsvHelper.dll
+C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\source.csproj.AssemblyReference.cache
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\source.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\source.AssemblyInfoInputs.cache
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\source.AssemblyInfo.cs
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\source.csproj.CoreCompileInputs.cache
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\source.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\source.sourcelink.json
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\staticwebassets\msbuild.source.Microsoft.AspNetCore.StaticWebAssets.props
@@ -22,6 +25,7 @@ C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\scopedcs
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\scopedcss\bundle\source.styles.css
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\scopedcss\projectbundle\source.bundle.scp.css
+C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\source.csproj.CopyComplete
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\source.dll
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\refint\source.dll
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\source.pdb
