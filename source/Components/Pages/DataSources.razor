@@ -1,6 +1,27 @@
 ﻿@page "/data-sources"
+@rendermode InteractiveServer
+@using source.Components.Elements
 
+<h3>Data Sources</h3>
+<button class="btn-primary" @onclick="() => modalRef?.Show()">Add Source</button>
 
-<PageTitle>Data Sources</PageTitle>
+<Modal @ref="modalRef">
+    <h3>Testing</h3>
+    <p>This is a test modal.</p>
+    <button class="btn-primary" @onclick="SaveAndCloseModal">Save from Modal</button>
+</Modal>
 
-<h1> Data Sources </h1>
+@code {
+    private Modal? modalRef;
+
+    void Save() {
+        Console.WriteLine("DataSources.Save() called.");
+        modalRef?.Close();
+    }
+
+    void SaveAndCloseModal() {
+         // Do some saving logic
+         Console.WriteLine("SaveAndCloseModal called from parent.");
+         modalRef?.Close();
+    }
+}

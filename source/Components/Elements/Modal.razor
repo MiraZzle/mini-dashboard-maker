@@ -1,0 +1,12 @@
+﻿@if (IsVisible) {
+    <div class="modal-backdrop" @onclick="Close">
+        <div class="modal-content" @onclick:stopPropagation>
+            <div class="modal-body">
+                @ChildContent
+            </div>
+            <button class="modal-close" @onclick="Close">×</button>
+        </div>
+    </div>
+}
+
+
