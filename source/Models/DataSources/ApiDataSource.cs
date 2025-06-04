@@ -2,12 +2,14 @@
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
-using Models.DataSources;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using source.Models.DataSources;
 
-namespace Models.DataSources;
+namespace source.Models.DataSources;
 
 public class ApiDataSource : IDataSource
 {
+    public string ApiKey { get; set; } = string.Empty;
     public Guid Id { get; set; } = Guid.NewGuid();
     public string SourceName { get; set; } = string.Empty;
     public DataSourceType SourceType => DataSourceType.Api;
@@ -84,4 +86,7 @@ public class ApiDataSource : IDataSource
 
         return dataTable;
     }
+
+    public string GetDescription() =>
+        $"API Source\n• Endpoint: {EndpointUrl}\n• API Key: {(string.IsNullOrEmpty(ApiKey) ? "None" : "Provided")}";
 }

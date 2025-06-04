@@ -1,4 +1,4 @@
-﻿namespace Models.DataSources;
+﻿namespace source.Models.DataSources;
 
 public enum DataSourceType
 {

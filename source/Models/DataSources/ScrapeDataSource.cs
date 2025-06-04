@@ -1,9 +1,10 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Net.Http;
 using System.Text.RegularExpressions;
-using Models.DataSources;
+using source.Models.DataSources;
 
-namespace Models.DataSources;
+namespace source.Models.DataSources;
 
 public class ScrapeDataSource : IDataSource
 {
@@ -44,4 +45,7 @@ public class ScrapeDataSource : IDataSource
 
         return dataTable;
     }
+
+    public string GetDescription() =>
+    $"Scrape Source\n• URL: {TargetUrl}\n• Pattern: {RegexPattern}";
 }

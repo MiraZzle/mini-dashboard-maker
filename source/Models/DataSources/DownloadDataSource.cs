@@ -4,10 +4,9 @@ using System.Text.Json;
 using CsvHelper;
 using System.Globalization;
 using System.Text;
-using Models.DataSources;
 using source.Models.DataSources;
 
-namespace Models.DataSources;
+namespace source.Models.DataSources;
 
 public class DownloadDataSource : IDataSource
 {
@@ -64,4 +63,7 @@ public class DownloadDataSource : IDataSource
 
         return dataTable;
     }
+
+    public string GetDescription() =>
+    $"Download Source\n• URL: {FileUrl}\n• Format: {Format}";
 }
