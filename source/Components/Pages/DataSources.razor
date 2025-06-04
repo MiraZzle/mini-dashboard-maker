@@ -1,27 +1,62 @@
 ﻿@page "/data-sources"
 @rendermode InteractiveServer
 @using source.Components.Elements
+@using source.Models.DataSources
+@using source.Services.DataSources
+@using source.Components.Forms
+
+@inject DataSourceService SourceService
 
 <h3>Data Sources</h3>
+
 <button class="btn-primary" @onclick="() => modalRef?.Show()">Add Source</button>
 
-<Modal @ref="modalRef">
-    <h3>Testing</h3>
-    <p>This is a test modal.</p>
-    <button class="btn-primary" @onclick="SaveAndCloseModal">Save from Modal</button>
+@if (dataSources.Count == 0) {
+    <p>No data sources registered yet.</p>
+}
+else {
+    <div class="card-container">
+        @foreach (var ds in dataSources) {
+            <div class="data-source-card" @onclick="() => OpenDetails(ds)">
+                <h5>@ds.SourceName</h5>
+                <p class="text-muted">@ds.SourceType</p>
+            </div>
+        }
+    </div>
+}
+
+<Modal @ref="detailsModalRef" OnClose="@(() => selectedDetails = null)">
+    @if (selectedDetails is not null) {
+        <h4>@selectedDetails.SourceName</h4>
+        <p><strong>Type:</strong> @selectedDetails.SourceType</p>
+        <pre>@selectedDetails.GetDescription()</pre>
+    }
 </Modal>
 
-@code {
-    private Modal? modalRef;
 
-    void Save() {
-        Console.WriteLine("DataSources.Save() called.");
-        modalRef?.Close();
-    }
 
-    void SaveAndCloseModal() {
-         // Do some saving logic
-         Console.WriteLine("SaveAndCloseModal called from parent.");
-         modalRef?.Close();
+
+<Modal @ref="modalRef">
+    <h4>Register Data Source</h4>
+
+    <label class="form-label">Type:</label>
+    <select class="form-control mb-3" @bind="selectedType">
+        @foreach (var type in Enum.GetValues<DataSourceType>())
+        {
+            <option value="@type">@type</option>
+        }
+    </select>
+
+    @if (selectedType == DataSourceType.Api)
+    {
+        <ApiDataSourceForm OnSubmit="HandleApiSubmit" />
     }
-}
+    else if (selectedType == DataSourceType.Download)
+    {
+        <DownloadDataSourceForm OnSubmit="HandleDownloadSubmit" />
+    }
+    else if (selectedType == DataSourceType.Scrape)
+    {
+        <ScrapeDataSourceForm OnSubmit="HandleScrapeSubmit" />
+    }
+</Modal>

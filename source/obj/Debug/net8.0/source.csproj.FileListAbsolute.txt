@@ -32,3 +32,4 @@ C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\refint\s
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\source.pdb
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\source.genruntimeconfig.cache
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\ref\source.dll
+C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\bin\Debug\net8.0\dataSources.json

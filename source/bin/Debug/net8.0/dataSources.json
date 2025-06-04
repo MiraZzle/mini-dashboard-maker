@@ -1,0 +1,33 @@
+[
+  {
+    "$type": "Download",
+    "id": "93742d45-d576-4f5f-8f7d-432f20526b9e",
+    "sourceName": "test",
+    "sourceType": "Download",
+    "fileUrl": "1234",
+    "format": "Csv"
+  },
+  {
+    "$type": "Scrape",
+    "id": "bed67387-5638-49e9-a944-e7205c418d46",
+    "sourceName": "scr",
+    "sourceType": "Scrape",
+    "targetUrl": "123",
+    "regexPattern": "aaaa",
+    "regexOptions": "IgnoreCase"
+  },
+  {
+    "$type": "Api",
+    "id": "157d8c40-9d6a-4928-a58c-07edf3494263",
+    "sourceName": "testapi",
+    "sourceType": "Api",
+    "endpointUrl": "1234",
+    "method": {
+      "method": "GET"
+    },
+    "headers": {},
+    "queryParams": {},
+    "body": null,
+    "jsonRootPath": null
+  }
+]

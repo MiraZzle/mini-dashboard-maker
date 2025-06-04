@@ -108,3 +108,37 @@ h1, h2, h3, h4 {
 .darker-border-checkbox.form-check-input {
     border-color: #999;
 }
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.data-source-card {
+    background-color: #1e1e2f; /* dark neutral tone */
+    color: #f0f0f0;
+    padding: 1rem;
+    border-radius: 12px;
+    width: 220px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+    .data-source-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+        background-color: #2b2b40;
+    }
+
+    .data-source-card h5 {
+        margin: 0;
+        font-size: 1.1rem;
+    }
+
+    .data-source-card .text-muted {
+        font-size: 0.9rem;
+        color: #a0a0c0;
+    }

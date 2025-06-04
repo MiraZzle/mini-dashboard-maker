@@ -22,6 +22,18 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/matfo/Desktop/MFF/mini-dashboard-maker/source/Components/Forms/ApiDataSourceForm.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xGb3Jtc1xBcGlEYXRhU291cmNlRm9ybS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matfo/Desktop/MFF/mini-dashboard-maker/source/Components/Forms/DownloadDataSourceForm.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xGb3Jtc1xEb3dubG9hZERhdGFTb3VyY2VGb3JtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/matfo/Desktop/MFF/mini-dashboard-maker/source/Components/Forms/ScrapeDataSourceForm.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xGb3Jtc1xTY3JhcGVEYXRhU291cmNlRm9ybS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/matfo/Desktop/MFF/mini-dashboard-maker/source/Components/Pages/Dashboards.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEYXNoYm9hcmRzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 

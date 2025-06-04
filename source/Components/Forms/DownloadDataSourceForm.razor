@@ -1,0 +1,35 @@
+﻿@using source.Models.DataSources
+@code {
+    [Parameter] public EventCallback<DownloadDataSource> OnSubmit { get; set; }
+
+    private string name = string.Empty;
+    private string fileUrl = string.Empty;
+    private PermittedDownloadType format = PermittedDownloadType.Csv;
+
+    private void Submit() {
+        var source = new DownloadDataSource {
+                Id = Guid.NewGuid(),
+                SourceName = name,
+                FileUrl = fileUrl,
+                Format = format
+            };
+
+        OnSubmit.InvokeAsync(source);
+    }
+}
+
+<h5>Download Data Source</h5>
+<label>Name:</label>
+<input class="form-control" @bind="name" />
+
+<label>File URL:</label>
+<input class="form-control" @bind="fileUrl" />
+
+<label>Format:</label>
+<select class="form-control" @bind="format">
+    @foreach (var type in Enum.GetValues<PermittedDownloadType>()) {
+        <option value="@type">@type</option>
+    }
+</select>
+
+<button class="btn-primary" @onclick="Submit">Submit</button>

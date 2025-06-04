@@ -1,0 +1,26 @@
+﻿@using Models.DataSources
+@code {
+    [Parameter] public EventCallback<ApiDataSource> OnSubmit { get; set; }
+
+    private string name = string.Empty;
+    private string apiUrl = string.Empty;
+
+    private void Submit() {
+        var source = new ApiDataSource {
+                Id = Guid.NewGuid(),
+                SourceName = name,
+                EndpointUrl = apiUrl
+            };
+
+        OnSubmit.InvokeAsync(source);
+    }
+}
+
+<h5>API Data Source</h5>
+<label>Name:</label>
+<input class="form-control" @bind="name" />
+
+<label>API URL:</label>
+<input class="form-control" @bind="apiUrl" />
+
+<button class="btn-primary" @onclick="Submit">Submit</button>

@@ -1,0 +1,31 @@
+﻿@using source.Models.DataSources
+@code {
+    [Parameter] public EventCallback<ScrapeDataSource> OnSubmit { get; set; }
+
+    private string name = string.Empty;
+    private string url = string.Empty;
+    private string regex = string.Empty;
+
+    private void Submit() {
+        var source = new ScrapeDataSource {
+                Id = Guid.NewGuid(),
+                SourceName = name,
+                TargetUrl = url,
+                RegexPattern = regex
+            };
+
+        OnSubmit.InvokeAsync(source);
+    }
+}
+
+<h5>Scrape Data Source</h5>
+<label>Name:</label>
+<input class="form-control" @bind="name" />
+
+<label>URL to scrape:</label>
+<input class="form-control" @bind="url" />
+
+<label>Regex pattern:</label>
+<input class="form-control" @bind="regex" />
+
+<button class="btn-primary" @onclick="Submit">Submit</button>
