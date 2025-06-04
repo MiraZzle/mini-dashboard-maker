@@ -25,11 +25,13 @@ a, .btn-link {
     padding: 0.5rem 1rem;
     border-radius: 4px;
     font-weight: 500;
+    cursor: pointer;
 }
 
-    .btn-primary:hover {
+.btn-primary:hover {
         background-color: #005fa3;
-    }
+        cursor: pointer;
+}
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
     outline: none;

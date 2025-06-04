@@ -23,6 +23,7 @@ C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\staticwe
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
+C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\scopedcss\Components\Elements\Modal.razor.rz.scp.css
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\scopedcss\bundle\source.styles.css
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\scopedcss\projectbundle\source.bundle.scp.css
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\source.csproj.CopyComplete
