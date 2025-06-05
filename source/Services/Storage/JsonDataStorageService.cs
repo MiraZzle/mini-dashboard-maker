@@ -40,7 +40,6 @@ public class JsonDataStorageService<T> : IDataStorageService<T>
         }
     }
 
-
     public async Task<List<T>> LoadAllAsync() {
         if (!File.Exists(_filePath))
             return new List<T>();
@@ -53,7 +52,6 @@ public class JsonDataStorageService<T> : IDataStorageService<T>
                 return new List<T>();
             return result.Cast<T>().ToList();
         }
-
 
         return JsonSerializer.Deserialize<List<T>>(json, _options) ?? new List<T>();
     }
@@ -69,5 +67,23 @@ public class JsonDataStorageService<T> : IDataStorageService<T>
         var json = JsonSerializer.Serialize(items, _options);
         await File.WriteAllTextAsync(_filePath, json);
 
+    }
+
+    public async Task<T?> GetByIdAsync(Guid id) {
+        var all = await LoadAllAsync();
+        var match = all.FirstOrDefault(item =>
+            item?.GetType().GetProperty("Id")?.GetValue(item)?.Equals(id) == true
+        );
+
+        return match;
+    }
+
+    public async Task RemoveByIdAsync(Guid id) {
+        var all = await LoadAllAsync();
+        var remaining = all.Where(item =>
+            item?.GetType().GetProperty("Id")?.GetValue(item)?.Equals(id) != true
+        ).ToList();
+
+        await SaveAllAsync(remaining);
     }
 }
