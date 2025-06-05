@@ -41,76 +41,102 @@
             </div>
 
             <hr />
-            <h4>Data Sources (Up to @DashboardDefinition.MaxPairs)</h4>
-
+            
+            <h4>Available Data Sources</h4>
             <div class="row mb-3">
                 <div class="col-md-6">
-                    <label class="form-label" for="filterType">Filter available data sources by type:</label>
-                    <InputSelect id="filterType" class="form-select" @bind-Value="filterTypeString">
+                    <label class="form-label" for="filterType">Filter by type:</label>
+                    <InputSelect id="filterType" class="form-select form-select-sm" @bind-Value="filterTypeString">
                         <option value="">All Types</option>
-                        @foreach (var type in Enum.GetValues<DataSourceType>()) {
+                        @foreach (var type in Enum.GetValues<DataSourceType>())
+                        {
                             <option value="@type.ToString()">@type.ToString()</option>
                         }
                     </InputSelect>
                 </div>
                 <div class="col-md-6">
-                    <label class="form-label" for="filterName">Search available data sources by name:</label>
-                    <InputText id="filterName" class="form-control" placeholder="Type name..." @bind-Value="filterName" />
+                    <label class="form-label" for="filterName">Search by name:</label>
+                    <InputText id="filterName" class="form-control form-control-sm" placeholder="Type name..." @bind-Value="filterName" />
                 </div>
             </div>
 
-            @foreach (var dataSourceEntry in dashboardCreationModel.DataSourceEntries) {
-                <div class="border p-3 mb-3 rounded position-relative shadow-sm" @key="dataSourceEntry.UniqueKey">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <h6 class="mb-0">Data Source @(dashboardCreationModel.DataSourceEntries.IndexOf(dataSourceEntry) + 1)</h6>
-                        <button type="button" class="btn btn-sm btn-outline-danger" title="Remove this data source" @onclick="() => RemoveDataSourceEntry(dataSourceEntry)">
-                            <i class="fas fa-trash-alt"></i> Remove
-                        </button>
-                    </div>
+            <div class="list-group mb-3" style="max-height: 200px; overflow-y: auto;">
+                @if (FilteredSources.Any())
+                {
+                    @foreach (var availableDs in FilteredSources)
+                    {
+                        var isAlreadyAdded = dashboardCreationModel.DataSourceEntries.Any(entry => entry.SelectedDataSourceId == availableDs.Id.ToString());
+                        var canAddMore = dashboardCreationModel.DataSourceEntries.Count < DashboardDefinition.MaxPairs;
 
-                    <div class="mb-2">
-                        <label class="form-label">Select Data Source:</label>
-                        <InputSelect class="form-select" @bind-Value="dataSourceEntry.SelectedDataSourceId"
-                                     @oninput="(e) => OnDataSourceChangedInEntry(dataSourceEntry, e.Value?.ToString())">
-                            <option value="">-- Select data source --</option>
-                            @foreach (var ds in FilteredSources) {
-                                <option value="@ds.Id.ToString()">@ds.SourceName (@ds.SourceType)</option>
-                            }
-                        </InputSelect>
-                        <ValidationMessage For="@(() => dataSourceEntry.SelectedDataSourceId)" />
-                    </div>
-
-                    @if (dataSourceEntry.SelectedDataSource != null) {
-                        <div class="mb-2">
-                            <label class="form-label">Select Visualization:</label>
-                            <InputSelect class="form-select" @bind-Value="dataSourceEntry.SelectedVisualizationType">
-                                <option value="">-- Select visualization --</option>
-                                @foreach (var vis in VisualizationMapping.GetSupported(dataSourceEntry.SelectedDataSource.SourceType)) {
-                                    <option value="@vis">@vis.ToString()</option>
-                                }
-                            </InputSelect>
-                            <ValidationMessage For="@(() => dataSourceEntry.SelectedVisualizationType)" />
+                        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <span>@availableDs.SourceName <small class="text-muted">(@availableDs.SourceType)</small></span>
+                            <button type="button" class="btn btn-sm btn-success py-0 px-1"
+                                    @onclick="() => AddSpecificDataSourceEntry(availableDs)"
+                                    disabled="@(!canAddMore || isAlreadyAdded)"
+                                    title="@(isAlreadyAdded ? "Already added" : (!canAddMore ? "Max sources reached" : "Add this source"))">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
                         </div>
                     }
-                </div>
-            }
+                }
+                else
+                {
+                    <p class="text-muted p-2">No data sources match your filter, or none are available.</p>
+                }
+            </div>
 
-            @if (dashboardCreationModel.DataSourceEntries.Count < DashboardDefinition.MaxPairs) {
-                <button type="button" class="btn btn-success mb-3" @onclick="AddDataSourceEntry">
-                    <i class="fas fa-plus"></i> Add Data Source
-                </button>
-            }
-            else if (DashboardDefinition.MaxPairs > 0) {
-                <p class="text-muted">Maximum number of data sources reached (@DashboardDefinition.MaxPairs).</p>
-            }
+            <hr />
 
-            @if (customErrorMessage != null) {
-                <div class="alert alert-danger" role="alert">
+            <h4>
+                Configure Selected Data Sources 
+                <small class="text-muted">(@dashboardCreationModel.DataSourceEntries.Count / @DashboardDefinition.MaxPairs Selected)</small>
+            </h4>
+            @if (dashboardCreationModel.DataSourceEntries.Any())
+            {
+                @foreach (var dataSourceEntry in dashboardCreationModel.DataSourceEntries)
+                {
+                    <div class="border p-3 mb-3 rounded position-relative shadow-sm" @key="dataSourceEntry.UniqueKey">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h6 class="mb-0">@dataSourceEntry.SelectedDataSource?.SourceName <small class="text-muted">(@dataSourceEntry.SelectedDataSource?.SourceType)</small></h6>
+                            <button type="button" class="btn btn-sm btn-outline-danger" title="Remove this data source" @onclick="() => RemoveDataSourceEntry(dataSourceEntry)">
+                                <i class="fas fa-trash-alt"></i> Remove
+                            </button>
+                        </div>
+
+                        @if (dataSourceEntry.SelectedDataSource != null)
+                        {
+                            <div class="mb-2">
+                                <label class="form-label">Select Visualization:</label>
+                                <InputSelect class="form-select" @bind-Value="dataSourceEntry.SelectedVisualizationType">
+                                    <option value="">-- Select visualization --</option>
+                                    @foreach (var vis in VisualizationMapping.GetSupported(dataSourceEntry.SelectedDataSource.SourceType))
+                                    {
+                                        <option value="@vis">@vis.ToString()</option>
+                                    }
+                                </InputSelect>
+                                <ValidationMessage For="@(() => dataSourceEntry.SelectedVisualizationType)" />
+                            </div>
+                        }
+                        else
+                        {
+                             <p class="text-danger small">Error: Data source information is missing for this entry.</p>
+                        }
+                    </div>
+                }
+            }
+            else
+            {
+                <p class="text-muted">No data sources have been added to this dashboard yet. Select from the list above.</p>
+            }
+            
+            @if (customErrorMessage != null)
+            {
+                <div class="alert alert-danger mt-3" role="alert">
                     @customErrorMessage
                 </div>
             }
-
         </div>
+
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" @onclick="CancelCreation">Cancel</button>
             <button type="submit" class="btn btn-primary">
@@ -120,152 +146,3 @@
     </EditForm>
 </Modal>
 
-@code {
-    private Modal? wizardModal;
-    private DashboardCreationModel dashboardCreationModel = new();
-    private List<IDataSource> allSources = new();
-    private string? filterTypeString; // Bound to InputSelect for DataSourceType
-    private DataSourceType? CurrentFilterType => string.IsNullOrEmpty(filterTypeString) ? null : Enum.Parse<DataSourceType>(filterTypeString);
-    private string? filterName;
-    private string? customErrorMessage;
-
-
-    // Helper model for form binding and validation
-    public class DashboardCreationModel
-    {
-        [Required(ErrorMessage = "Dashboard name is required.")]
-        [StringLength(100, MinimumLength = 3, ErrorMessage = "Name must be between 3 and 100 characters.")]
-        public string Name { get; set; } = string.Empty;
-
-        [StringLength(500, ErrorMessage = "Description cannot exceed 500 characters.")]
-        public string? Description { get; set; }
-
-        public List<DataSourceEntryModel> DataSourceEntries { get; set; } = new();
-    }
-
-    // Helper model for each data source entry in the form
-    public class DataSourceEntryModel
-    {
-        public string UniqueKey { get; } = Guid.NewGuid().ToString(); // For @key
-
-        [Required(ErrorMessage = "A data source must be selected.")]
-        public string? SelectedDataSourceId { get; set; } // Store as string for InputSelect binding
-
-        public IDataSource? SelectedDataSource { get; set; } // The actual resolved data source object
-
-        [Required(ErrorMessage = "A visualization type must be selected.")]
-        public VisualizationType? SelectedVisualizationType { get; set; }
-    }
-
-    protected override async Task OnInitializedAsync() {
-        allSources = await SourceService.GetAllAsync();
-        ResetForm(); // Initialize the model
-    }
-
-    private IEnumerable<IDataSource> FilteredSources =>
-        allSources.Where(ds =>
-            (CurrentFilterType == null || ds.SourceType == CurrentFilterType) &&
-            (string.IsNullOrEmpty(filterName) || ds.SourceName.Contains(filterName, StringComparison.OrdinalIgnoreCase)));
-
-    private void ShowCreateDashboardModal() {
-        ResetForm();
-        customErrorMessage = null;
-        // Optionally, add one empty data source slot by default when the modal opens:
-        // if (!dashboardCreationModel.DataSourceEntries.Any() && DashboardDefinition.MaxPairs > 0)
-        // {
-        //     AddDataSourceEntry();
-        // }
-        wizardModal?.Show();
-    }
-
-    private void AddDataSourceEntry() {
-        if (dashboardCreationModel.DataSourceEntries.Count < DashboardDefinition.MaxPairs) {
-            dashboardCreationModel.DataSourceEntries.Add(new DataSourceEntryModel());
-            customErrorMessage = null; // Clear previous errors
-            StateHasChanged();
-        }
-    }
-
-    private void RemoveDataSourceEntry(DataSourceEntryModel entry) {
-        dashboardCreationModel.DataSourceEntries.Remove(entry);
-        customErrorMessage = null; // Clear previous errors
-        StateHasChanged();
-    }
-
-    private void OnDataSourceChangedInEntry(DataSourceEntryModel entry, string? selectedIdValue) {
-        if (string.IsNullOrEmpty(selectedIdValue)) {
-            entry.SelectedDataSourceId = null;
-            entry.SelectedDataSource = null;
-        }
-        else {
-            // The binding `@bind-Value="dataSourceEntry.SelectedDataSourceId"` handles setting the ID.
-            // We just need to find the corresponding IDataSource object.
-            entry.SelectedDataSourceId = selectedIdValue; // Ensure this is set if using @oninput
-            entry.SelectedDataSource = allSources.FirstOrDefault(ds => ds.Id.ToString() == selectedIdValue);
-        }
-        // Reset visualization when data source changes
-        entry.SelectedVisualizationType = null;
-        customErrorMessage = null; // Clear previous errors
-        StateHasChanged(); // Trigger UI update for visualization dropdown
-    }
-
-    private async Task HandleValidSubmit() {
-        customErrorMessage = null; // Clear previous custom errors
-
-        // Additional check: if there are entries, at least one must be valid and configured.
-        // Or, enforce that all added entries must be fully configured.
-        // For simplicity now, DataAnnotations check required fields on entries.
-        // If user adds an entry, they must fill it.
-        // If no entries are added, it means an empty DataPairs list, which might be permissible.
-
-        bool allEntriesValid = dashboardCreationModel.DataSourceEntries.All(e =>
-            !string.IsNullOrEmpty(e.SelectedDataSourceId) && e.SelectedVisualizationType.HasValue);
-
-        if (dashboardCreationModel.DataSourceEntries.Any() && !allEntriesValid) {
-            customErrorMessage = "All added data sources must have both a selected source and a visualization. Please complete or remove them.";
-            return; // Prevent saving
-        }
-
-        // Ensure there is at least one data source if entries are intended
-        if (dashboardCreationModel.DataSourceEntries.Any(e => string.IsNullOrEmpty(e.SelectedDataSourceId) || !e.SelectedVisualizationType.HasValue)) {
-            // This case should be caught by DataAnnotations if fields are required.
-            // Or if we want to allow saving with some empty slots (which is unlikely based on requirements)
-        }
-
-
-        var dashboardPairs = dashboardCreationModel.DataSourceEntries
-            .Where(e => e.SelectedDataSource != null && e.SelectedVisualizationType != null)
-            .Select(e => new DataSourceVisualizationPair {
-                    // Ensure Id is correctly parsed/used if it's not a string natively in IDataSource
-                    DataSourceId = e.SelectedDataSource!.Id, // Assuming Id is Guid; adapt if it's int or string
-                    Visualization = e.SelectedVisualizationType!.Value
-                })
-            .ToList();
-
-        // You might want to enforce that at least one data source pair is created if the section is used.
-        // For example: if (dashboardCreationModel.DataSourceEntries.Any() && !dashboardPairs.Any()) { /* error */ }
-
-        var definition = new DashboardDefinition {
-                Name = dashboardCreationModel.Name,
-                Description = dashboardCreationModel.Description,
-                DataPairs = dashboardPairs
-            };
-
-        await DashboardService.AddAsync(definition);
-        wizardModal?.Close();
-        ResetForm();
-    }
-
-    private void CancelCreation() {
-        wizardModal?.Close();
-        ResetForm();
-    }
-
-    private void ResetForm() {
-        dashboardCreationModel = new DashboardCreationModel();
-        filterTypeString = null; // Reset filter
-        filterName = string.Empty; // Reset filter
-        customErrorMessage = null;
-        StateHasChanged();
-    }
-}
