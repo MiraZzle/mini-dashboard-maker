@@ -9,7 +9,9 @@
 
 <h3>Data Sources</h3>
 
-<button class="btn-primary" @onclick="() => modalRef?.Show()">Add Source</button>
+<button class="btn btn-primary mb-3" @onclick="() => modalRef?.Show()">
+    <i class="fas fa-plus-circle"></i> Add Source
+</button>
 
 @if (dataSources.Count == 0) {
     <p>No data sources registered yet.</p>

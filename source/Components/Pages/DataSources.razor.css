@@ -1,0 +1,86 @@
+﻿/* Styles for Data Source Cards on /data-sources page */
+
+/* Ensure .card-container is styled (from global.css suggestion) */
+/*
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg, 1.5rem);
+    margin-top: var(--spacing-md, 1rem);
+}
+*/
+
+.data-source-card {
+    background-color: var(--panel-bg, #212121);
+    color: var(--text-color, #e0e0e0);
+    border: 1px solid var(--border-color, #3e3e3e);
+    border-radius: var(--border-radius-lg, 8px);
+    padding: var(--spacing-md, 1rem);
+    width: 260px; /* Adjust width as preferred */
+    min-height: 110px; /* Provides a consistent minimum size */
+
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; This is good if you want to push tag to very bottom */
+
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1); /* Softer, modern shadow */
+    cursor: pointer;
+    transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+    .data-source-card:hover,
+    .data-source-card:focus-within { /* Added focus-within for keyboard navigation if card is focusable */
+        transform: translateY(-4px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Slightly more pronounced shadow on hover/focus */
+        border-color: var(--primary-color, #1c7ed6); /* Highlight with primary color */
+    }
+
+    .data-source-card h5 { /* Source Name */
+        margin: 0 0 var(--spacing-sm, 0.5rem) 0; /* Space below the name */
+        font-size: 1.1rem;
+        font-weight: 500; /* Medium weight, clear but not overly bold */
+        color: var(--text-heading, #f1f3f5);
+        line-height: 1.3;
+        word-break: break-word; /* Prevent long names from breaking layout */
+        flex-grow: 1; /* Allow name to take up space before tag */
+    }
+
+    .data-source-card .source-type-tag { /* Styling for the type tag */
+        display: inline-block; /* Makes it behave like a badge */
+        padding: 0.25em 0.65em;
+        font-size: 0.7rem; /* Smaller for a tag */
+        font-weight: 600; /* Slightly bolder for emphasis */
+        line-height: 1;
+        color: var(--text-muted, #adb5bd); /* Use muted text color for the tag text */
+        background-color: rgba(173, 181, 189, 0.1); /* Very subtle background based on text-muted color */
+        /* Alternative background: var(--panel-bg-alt, #2b2b2b); */
+        border: 1px solid rgba(173, 181, 189, 0.2); /* Subtle border for the tag */
+        border-radius: var(--border-radius-sm, 4px); /* Slightly rounded corners for the tag */
+        text-transform: uppercase;
+        letter-spacing: 0.05em; /* Adds a bit of refinement */
+        margin-top: auto; /* Pushes the tag to the bottom of the card */
+        align-self: flex-start; /* Prevents tag from stretching full width */
+    }
+
+/* Optional: Inline style for the tag when used in details modal or other text flows */
+.source-type-tag-inline {
+    display: inline-block;
+    padding: 0.15em 0.4em;
+    font-size: 0.7rem;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--text-muted, #adb5bd);
+    background-color: rgba(173, 181, 189, 0.1);
+    border: 1px solid rgba(173, 181, 189, 0.2);
+    border-radius: var(--border-radius-sm, 4px);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-left: 0.25em; /* Space it from preceding text */
+    vertical-align: middle; /* Align better with text */
+}
+
+/* Ensure the button in this page uses global styles */
+/* Add mb-3 to the button for spacing from the list or message below it */
+.page > h3 + .btn-primary { /* Assuming this page structure */
+    margin-bottom: var(--spacing-lg, 1.5rem);
+}

@@ -15,5 +15,84 @@
         "visualization": "CardList"
       }
     ]
+  },
+  {
+    "id": "76d7f1f7-7263-4ddf-a6d2-6cb08beffa70",
+    "name": "My new dashboard",
+    "description": "This is an amazing new dashboard",
+    "dataPairs": [
+      {
+        "dataSourceId": "157d8c40-9d6a-4928-a58c-07edf3494263",
+        "visualization": "LineChart"
+      },
+      {
+        "dataSourceId": "bed67387-5638-49e9-a944-e7205c418d46",
+        "visualization": "CardList"
+      }
+    ]
+  },
+  {
+    "id": "34e80673-5a91-498d-89d3-5f6244e53cf0",
+    "name": "ts2",
+    "description": "aaaa",
+    "dataPairs": [
+      {
+        "dataSourceId": "93742d45-d576-4f5f-8f7d-432f20526b9e",
+        "visualization": "Table"
+      },
+      {
+        "dataSourceId": "157d8c40-9d6a-4928-a58c-07edf3494263",
+        "visualization": "BarChart"
+      },
+      {
+        "dataSourceId": "bed67387-5638-49e9-a944-e7205c418d46",
+        "visualization": "CardList"
+      }
+    ]
+  },
+  {
+    "id": "f60e4a04-9d65-40ee-9943-9a902aa35c0d",
+    "name": "moje nova dashboarda",
+    "description": "testovaci popis",
+    "dataPairs": [
+      {
+        "dataSourceId": "bed67387-5638-49e9-a944-e7205c418d46",
+        "visualization": "CardList"
+      }
+    ]
+  },
+  {
+    "id": "75e36e96-00af-4fff-89e8-d39ab625eb36",
+    "name": "Some dashboard",
+    "description": null,
+    "dataPairs": [
+      {
+        "dataSourceId": "bed67387-5638-49e9-a944-e7205c418d46",
+        "visualization": "CardList"
+      },
+      {
+        "dataSourceId": "157d8c40-9d6a-4928-a58c-07edf3494263",
+        "visualization": "LineChart"
+      },
+      {
+        "dataSourceId": "93742d45-d576-4f5f-8f7d-432f20526b9e",
+        "visualization": "PieChart"
+      }
+    ]
+  },
+  {
+    "id": "09d948dc-e212-4f26-9e01-87133b0fac03",
+    "name": "asdasda",
+    "description": "aaaa",
+    "dataPairs": [
+      {
+        "dataSourceId": "bed67387-5638-49e9-a944-e7205c418d46",
+        "visualization": "CardList"
+      },
+      {
+        "dataSourceId": "93742d45-d576-4f5f-8f7d-432f20526b9e",
+        "visualization": "Table"
+      }
+    ]
   }
 ]

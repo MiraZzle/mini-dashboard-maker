@@ -34,3 +34,5 @@ C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\source.g
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\ref\source.dll
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\bin\Debug\net8.0\dataSources.json
 C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\bin\Debug\net8.0\dashboards.json
+C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\scopedcss\Components\Pages\Dashboards.razor.rz.scp.css
+C:\Users\matfo\Desktop\MFF\mini-dashboard-maker\source\obj\Debug\net8.0\scopedcss\Components\Pages\DataSources.razor.rz.scp.css

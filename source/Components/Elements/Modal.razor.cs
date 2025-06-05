@@ -13,13 +13,11 @@ namespace source.Components.Elements
         public void Show() {
             IsVisible = true;
             Console.WriteLine("Modal.Show() called. IsVisible is now true."); 
-            StateHasChanged(); 
         }
 
         public void Close() {
             IsVisible = false;
             Console.WriteLine("Modal.Close() called. IsVisible is now false.");
-            StateHasChanged();
 
             if (OnClose.HasDelegate) {
                 OnClose.InvokeAsync();

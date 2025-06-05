@@ -17,13 +17,12 @@
     <i class="fas fa-plus-circle"></i> Create New Dashboard
 </button>
 
-<Modal @ref="wizardModal">
+<Modal @ref="modalRef">
     <EditForm Model="dashboardCreationModel" OnValidSubmit="HandleValidSubmit" novalidate>
         <DataAnnotationsValidator />
 
         <div class="modal-header">
             <h5 class="modal-title">Create Dashboard</h5>
-            <button type="button" class="btn-close" @onclick="CancelCreation" aria-label="Close"></button>
         </div>
 
         <div class="modal-body">

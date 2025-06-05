@@ -1,108 +1,145 @@
+/* NavMenu CSS (for NavMenu.razor component, typically the sidebar) */
+
+/* Hamburger Toggler for mobile */
 .navbar-toggler {
     appearance: none;
     cursor: pointer;
-    width: 3.5rem;
+    width: 3.5rem; /* Keep size */
     height: 2.5rem;
-    color: white;
-    position: absolute;
+    color: var(--text-color-light); /* Ensure visibility */
+    position: absolute; /* Or fixed if part of a global mobile header */
     top: 0.5rem;
     right: 1rem;
-    z-index: 1100;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") no-repeat center/1.75rem rgba(255, 255, 255, 0.1);
+    z-index: 1100; /* Above sidebar overlay */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--border-radius-sm);
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(224, 224, 224, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") no-repeat center/1.75rem rgba(255, 255, 255, 0.05);
+    transition: background-color 0.15s ease;
 }
 
-.nav-scrollable {
-    display: none;
+    .navbar-toggler:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-toggler:focus { /* Ensure focus style is applied */
+        box-shadow: 0 0 0 0.2rem var(--primary-color-focus-shadow);
+    }
+
+
+/* Scrollable container for nav items (the sidebar itself) */
+.nav-scrollable { /* This is the main sidebar element */
+    display: none; /* Hidden on mobile by default */
+    background-color: var(--panel-bg); /* Sidebar background */
+    overflow-y: auto;
+    box-sizing: border-box;
+    /* Position, width, etc. handled by media queries and .sidebar class from MainLayout */
+}
+
+/* Mobile overlay behavior */
+.navbar-toggler:checked ~ .nav-scrollable { /* When toggler is active, show overlay */
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
-    background-color: #1e1e1e;
-    overflow-y: auto;
-    z-index: 1000;
-    box-sizing: border-box;
+    width: 260px; /* Width of mobile overlay */
+    z-index: 1050; /* Above content, below modal */
+    box-shadow: 3px 0 10px rgba(0,0,0,0.2);
 }
 
-.navbar-toggler:checked ~ .nav-scrollable {
-    display: block;
-    width: 100%;
-}
-
-.top-bar {
-    height: 3.5rem;
-    background-color: rgba(0, 0, 0, 0.4);
+/* Header section within the NavMenu (e.g., for App Brand/Logo) */
+.nav-menu-header { /* If NavMenu has its own header */
+    height: 3.5rem; /* Match app-top-bar height */
     display: flex;
     align-items: center;
-    padding: 0 1rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1050;
+    padding: 0 var(--spacing-md);
+    /* background-color: #1a1a1a; */ /* Slightly different from nav-scrollable bg if desired */
+    border-bottom: 1px solid var(--border-color);
     box-sizing: border-box;
 }
 
-.brand {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-}
+    .nav-menu-header .brand { /* Brand text/logo within NavMenu header */
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-color-light);
+        text-decoration: none;
+    }
 
+/* List of navigation links */
 .nav-menu {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
-    gap: 0.5rem;
+    padding: var(--spacing-sm); /* Padding around all nav items */
+    gap: var(--spacing-xs); /* Small gap between items */
     width: 100%;
     box-sizing: border-box;
 }
 
+/* Desktop view for sidebar */
 @media (min-width: 641px) {
     .navbar-toggler {
-        display: none;
+        display: none; /* Hide toggler on desktop */
     }
 
-    .nav-scrollable {
-        display: block !important;
-        width: 220px;
-        border-right: 1px solid #444;
+    .nav-scrollable { /* Sidebar is part of .sidebar class from MainLayout */
+        display: flex !important; /* Always visible */
+        flex-direction: column;
+        /* Width, height, position, border-right are handled by .sidebar in MainLayout */
+        /* padding-top: 0; Remove padding-top if .nav-menu-header is part of normal flow */
+    }
+
+    .nav-menu-header {
+        /* Ensure it fits within sidebar structure */
     }
 }
 
-.icon {
-    display: inline-block;
-    width: 1.5em;
-    text-align: center;
-    margin-right: 0.75rem;
-}
-
-.nav-item {
+/* Styling for individual nav items and links */
+.nav-item { /* Optional wrapper for link + icon */
     font-size: 0.9rem;
 }
 
-:deep(.nav-link) {
-    background: none;
-    border: none;
-    border-radius: 4px;
-    height: 3rem;
+:deep(.nav-link) { /* Targets the <a> tag of Blazor's NavLink component */
     display: flex;
     align-items: center;
-    padding: 0.5rem 1rem;
-    width: 100%;
-    color: #d7d7d7;
+    padding: 0.65rem var(--spacing-md); /* Vertical padding for links */
+    border-radius: var(--border-radius);
+    color: var(--text-muted); /* Default link color */
     text-decoration: none;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    font-weight: 500;
+    height: auto; /* Remove fixed height, let padding dictate */
+    width: 100%;
     box-sizing: border-box;
+    background: none;
+    border: none;
+}
+
+:deep(.nav-link .icon) { /* Icon within the nav link */
+    display: inline-block;
+    width: 1.25em;
+    min-width: 1.25em; /* Prevent shrinking */
+    text-align: center;
+    margin-right: var(--spacing-sm); /* Space between icon and text */
+    font-size: 1rem; /* Icon visual size */
+    color: var(--text-muted); /* Default icon color */
+    transition: color 0.15s ease;
 }
 
 :deep(.nav-link:hover) {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
+    background-color: rgba(var(--link-color), 0.1); /* Use link color with alpha for hover */
+    color: var(--link-color-hover);
+}
+
+:deep(.nav-link:hover .icon) {
+    color: var(--link-color-hover);
 }
 
 :deep(.nav-link.active) {
-    background-color: rgba(255, 255, 255, 0.37);
-    color: white;
+    background-color: var(--primary-color);
+    color: #fff; /* White text on solid primary background */
+    font-weight: 600;
+}
+
+:deep(.nav-link.active .icon) {
+    color: #fff;
 }

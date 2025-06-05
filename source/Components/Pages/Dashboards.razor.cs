@@ -8,7 +8,7 @@ namespace source.Components.Pages
 {
     public partial class Dashboards
     {
-        private Modal? wizardModal;
+        private Modal? modalRef;
         private DashboardCreationModel dashboardCreationModel = new();
         private List<IDataSource> allSources = new();
         private string? filterTypeString;
@@ -52,7 +52,7 @@ namespace source.Components.Pages
         private void ShowCreateDashboardModal() {
             ResetForm();
             customErrorMessage = null;
-            wizardModal?.Show();
+            modalRef?.Show();
         }
 
         private void AddSpecificDataSourceEntry(IDataSource sourceToAdd) {
@@ -117,12 +117,12 @@ namespace source.Components.Pages
             };
 
             await DashboardService.AddAsync(definition);
-            wizardModal?.Close();
+            modalRef?.Close();
             ResetForm();
         }
 
         private void CancelCreation() {
-            wizardModal?.Close();
+            modalRef?.Close();
             ResetForm();
         }
 

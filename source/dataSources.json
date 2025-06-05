@@ -18,6 +18,7 @@
   },
   {
     "$type": "Api",
+    "apiKey": "",
     "id": "157d8c40-9d6a-4928-a58c-07edf3494263",
     "sourceName": "testapi",
     "sourceType": "Api",
@@ -29,5 +30,13 @@
     "queryParams": {},
     "body": null,
     "jsonRootPath": null
+  },
+  {
+    "$type": "Download",
+    "id": "9dbf0b10-d93b-4ad7-8785-8bda26140e44",
+    "sourceName": "",
+    "sourceType": "Download",
+    "fileUrl": "",
+    "format": "Csv"
   }
 ]

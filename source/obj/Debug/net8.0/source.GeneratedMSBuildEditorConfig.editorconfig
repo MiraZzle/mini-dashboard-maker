@@ -34,14 +34,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xGb3Jtc1xTY3JhcGVEYXRhU291cmNlRm9ybS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/matfo/Desktop/MFF/mini-dashboard-maker/source/Components/Pages/Dashboards.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEYXNoYm9hcmRzLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/matfo/Desktop/MFF/mini-dashboard-maker/source/Components/Pages/DataSources.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEYXRhU291cmNlcy5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/matfo/Desktop/MFF/mini-dashboard-maker/source/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -69,3 +61,11 @@ build_metadata.AdditionalFiles.CssScope = b-0sm30vl15q
 [C:/Users/matfo/Desktop/MFF/mini-dashboard-maker/source/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-9yno2y18vy
+
+[C:/Users/matfo/Desktop/MFF/mini-dashboard-maker/source/Components/Pages/Dashboards.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEYXNoYm9hcmRzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-70hec1ycif
+
+[C:/Users/matfo/Desktop/MFF/mini-dashboard-maker/source/Components/Pages/DataSources.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEYXRhU291cmNlcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-83uxbsvb3o
