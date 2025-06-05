@@ -29,7 +29,9 @@ else {
     @if (selectedDetails is not null) {
         <h4>@selectedDetails.SourceName</h4>
         <p><strong>Type:</strong> @selectedDetails.SourceType</p>
-        <pre>@selectedDetails.GetDescription()</pre>
+        @foreach (var prop in selectedDetails.GetDescription()) {
+            <p><strong>@prop.Key:</strong> @prop.Value</p>
+        }
     }
 </Modal>
 
