@@ -46,6 +46,10 @@ public class ScrapeDataSource : IDataSource
         return dataTable;
     }
 
-    public string GetDescription() =>
-    $"Scrape Source\n• URL: {TargetUrl}\n• Pattern: {RegexPattern}";
+    public Dictionary<String, String> GetDescription() =>
+        new Dictionary<String, String>() {
+            { "URL", TargetUrl },
+            { "Pattern", RegexPattern },
+            { "Options", RegexOptions.ToString() }
+        };
 }

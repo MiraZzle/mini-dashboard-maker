@@ -64,6 +64,9 @@ public class DownloadDataSource : IDataSource
         return dataTable;
     }
 
-    public string GetDescription() =>
-    $"Download Source\n• URL: {FileUrl}\n• Format: {Format}";
+    public Dictionary<String, String> GetDescription() =>
+        new Dictionary<String, String> {
+            { "File URL", FileUrl },
+            { "Format", Format.ToString() }
+        };
 }

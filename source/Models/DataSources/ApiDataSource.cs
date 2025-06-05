@@ -87,6 +87,15 @@ public class ApiDataSource : IDataSource
         return dataTable;
     }
 
-    public string GetDescription() =>
-        $"API Source\n• Endpoint: {EndpointUrl}\n• API Key: {(string.IsNullOrEmpty(ApiKey) ? "None" : "Provided")}";
+    public Dictionary<String, String> GetDescription() =>
+        new Dictionary<String, String>() {
+            { "Source Name", SourceName ?? "Unnamed Data Source" },
+            { "Endpoint URL", EndpointUrl ?? "No URL specified" },
+            { "Method", Method.Method },
+            { "API Key", string.IsNullOrEmpty(ApiKey) ? "Not provided" : "Provided" },
+            { "Headers", Headers.Count > 0 ? string.Join(", ", Headers.Select(h => $"{h.Key}: {h.Value}")) : "No headers" },
+            { "Query Parameters", QueryParams.Count > 0 ? string.Join(", ", QueryParams.Select(q => $"{q.Key}: {q.Value}")) : "No query parameters" },
+            { "Body", string.IsNullOrEmpty(Body) ? "No body content" : Body.Substring(0, Math.Min(50, Body.Length)) + (Body.Length > 50 ? "..." : "") },
+            { "JSON Root Path", JsonRootPath ?? "Not specified"}
+        };
 }
