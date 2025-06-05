@@ -1,0 +1,34 @@
+[
+  {
+    "id": "ab37133f-3d38-4ca3-85a6-5eb1a1e7b72e",
+    "name": "Some dashboard",
+    "description": "1234",
+    "dataPairs": []
+  },
+  {
+    "id": "32f6bc34-bc9f-4c65-97a3-7e616e73bab7",
+    "name": "Some dashboard",
+    "description": "abc",
+    "dataPairs": [
+      {
+        "dataSourceId": "bed67387-5638-49e9-a944-e7205c418d46",
+        "visualization": "CardList"
+      }
+    ]
+  },
+  {
+    "id": "76d7f1f7-7263-4ddf-a6d2-6cb08beffa70",
+    "name": "My new dashboard",
+    "description": "This is an amazing new dashboard",
+    "dataPairs": [
+      {
+        "dataSourceId": "157d8c40-9d6a-4928-a58c-07edf3494263",
+        "visualization": "LineChart"
+      },
+      {
+        "dataSourceId": "bed67387-5638-49e9-a944-e7205c418d46",
+        "visualization": "CardList"
+      }
+    ]
+  }
+]
