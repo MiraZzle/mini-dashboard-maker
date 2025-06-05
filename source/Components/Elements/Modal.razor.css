@@ -8,26 +8,42 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2000;
+    z-index: 2000; 
 }
 
 .modal-content {
     background: #2e2e2e;
     color: white;
     border-radius: 8px;
-    padding: 1.5rem;
+    padding: 1.5rem; 
     min-width: 300px;
-    max-width: 90vw;
+    max-width: 90vw; 
+    max-height: 90vh;
     position: relative;
+    display: flex; 
+    flex-direction: column; 
+    overflow: hidden; 
 }
+
+    .modal-content > .modal-body {
+        flex-grow: 1;
+        overflow-y: auto;
+    }
 
 .modal-close {
     position: absolute;
-    top: 0.4rem;
-    right: 0.8rem;
+    top: 0.75rem; 
+    right: 1rem; 
     background: none;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.75rem; 
     border: none;
     cursor: pointer;
+    line-height: 1; 
+    padding: 0.25rem 0.5rem; 
+    z-index: 10; 
 }
+
+    .modal-close:hover {
+        color: #cccccc; 
+    }
